@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
+import { ClientSignOut } from "@/components/client-sign-out";
 
 export default async function Home() {
   const session = await auth.api.getSession({
@@ -126,6 +127,3 @@ export default async function Home() {
     </main>
   );
 }
-
-// Client component for sign out button
-import { ClientSignOut } from "@/components/client-sign-out";
