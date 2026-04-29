@@ -3,7 +3,12 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { PrismaClient } from "@prisma/client";
 import { jwt } from "better-auth/plugins";
 
-const prisma = new PrismaClient();
+import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+
+const adapter = new PrismaBetterSqlite3({
+    url: process.env.DATABASE_URL || "file:./dev.db"
+});
+const prisma = new PrismaClient({ adapter });
 
 export const auth = betterAuth({
     database: prismaAdapter(prisma, {
