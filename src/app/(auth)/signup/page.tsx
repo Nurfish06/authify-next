@@ -29,7 +29,7 @@ export default function SignupPage() {
       if (error) {
         setError(error.message || "Failed to sign up");
       } else {
-        router.push("/");
+        router.push("/dashboard");
       }
     } catch (err) {
       setError("An unexpected error occurred");
